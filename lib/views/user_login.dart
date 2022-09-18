@@ -34,7 +34,7 @@ class _UserLoginState extends State<UserLogin> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text("Usuário (e-mail):", style: TextStyle(fontSize: 20.0, color: Theme.of(context).colorScheme.onPrimary)),
+                    Text("Usuário:", style: TextStyle(fontSize: 20.0, color: Theme.of(context).colorScheme.onPrimary)),
                     const SizedBox(height: 5.0,),
                     TextFormField(
                       decoration: CustomLayoutBuilder.textFormFieldDecoration(Icons.person, '', context),
@@ -52,6 +52,7 @@ class _UserLoginState extends State<UserLogin> {
                     TextFormField(
                       decoration: CustomLayoutBuilder.textFormFieldDecoration(Icons.lock, '', context),
                       autovalidateMode: AutovalidateMode.onUserInteraction,
+                      obscureText: true,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, digite a senha';

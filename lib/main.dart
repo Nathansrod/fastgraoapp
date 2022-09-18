@@ -30,11 +30,11 @@ class MyApp extends StatelessWidget {
         ),
         fontFamily: 'Roboto',
         textTheme: const TextTheme(
-          headline4: TextStyle(fontSize: 24.0, letterSpacing: 0),
-          headline6: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, letterSpacing: 0.15),
-          bodyText2: TextStyle(fontSize: 14.0, letterSpacing: 0.25),
-          button: TextStyle(fontSize: 16.0, letterSpacing: 1.25),
-          caption: TextStyle(fontSize: 12.0, letterSpacing: 0.4)
+          headline4: TextStyle(fontSize: 28.0, letterSpacing: 0),
+          headline6: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, letterSpacing: 0.15),
+          bodyText2: TextStyle(fontSize: 18.0, letterSpacing: 0.25),
+          button: TextStyle(fontSize: 20.0, letterSpacing: 1.25),
+          caption: TextStyle(fontSize: 16.0, letterSpacing: 0.4)
         ),
       ),
     );
