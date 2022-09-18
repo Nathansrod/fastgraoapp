@@ -38,7 +38,7 @@ class _UserLoginState extends State<UserLogin> {
                     const SizedBox(height: 5.0,),
                     TextFormField(
                       decoration: CustomLayoutBuilder.textFormFieldDecoration(Icons.person, '', context),
-                      autovalidateMode: AutovalidateMode.always,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, digite o usuário';
@@ -51,7 +51,7 @@ class _UserLoginState extends State<UserLogin> {
                     const SizedBox(height: 5.0,),
                     TextFormField(
                       decoration: CustomLayoutBuilder.textFormFieldDecoration(Icons.lock, '', context),
-                      autovalidateMode: AutovalidateMode.always,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Por favor, digite a senha';
