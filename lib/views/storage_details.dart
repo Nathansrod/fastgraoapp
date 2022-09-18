@@ -1,3 +1,4 @@
+import 'package:fastgrao_hackagrao2022/views/confirm_schedule.dart';
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
 
@@ -6,8 +7,7 @@ import '../models/Storage.dart';
 class StorageDetails extends StatefulWidget {
   Storage storage;
   DateTime query_date;
-  StorageDetails({Key? key, required this.storage, required this.query_date})
-      : super(key: key);
+  StorageDetails({Key? key, required this.storage, required this.query_date}) : super(key: key);
 
   @override
   State<StorageDetails> createState() => _StorageDetailsState();
@@ -44,28 +44,41 @@ class _StorageDetailsState extends State<StorageDetails> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Dados do Silo",
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            SizedBox(
-              height: 5.0,
-            ),
-            Text(
-              "CNPJ: ${widget.storage.cnpj}",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            Text(
-              "Tipos de Grão: ${widget.storage.grain_types}",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            Text(
-              "Horário de Funcionamento: ${widget.storage.startAt}h às ${widget.storage.endAt}h",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            Text(
-              "Armazenamento: ${widget.storage.current_capacity}/${widget.storage.max_capacity} ton",
-              style: Theme.of(context).textTheme.bodyText2,
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Icon(Icons.info, size: 40),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Informações do Silo",
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    Text(
+                      "CNPJ: ${widget.storage.cnpj}",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    Text(
+                      "Tipos de Grão: ${widget.storage.grain_types}",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    Text(
+                      "Horário de Funcionamento: ${widget.storage.startAt}h às ${widget.storage.endAt}h",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    Text(
+                      "Armazenamento: ${widget.storage.current_capacity}/${widget.storage.max_capacity} ton",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                  ],
+                )
+              ],
             ),
             Divider(
               thickness: 1.0,
@@ -122,7 +135,12 @@ class _StorageDetailsState extends State<StorageDetails> {
 
   Widget _AgendaCard(BuildContext context, int index) {
     return GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ConfirmSchedule(storage: widget.storage, scheduleDate: DateTime(_filterDate.year, _filterDate.month, _filterDate.day, _startAtAsTime.add(Duration(minutes: widget.storage.average_processes*index)).hour, _startAtAsTime.add(Duration(minutes: widget.storage.average_processes*index)).minute, 0)))
+          );
+        },
         child: Card(
             child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0),

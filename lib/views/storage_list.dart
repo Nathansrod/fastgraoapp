@@ -70,20 +70,26 @@ class _StorageListState extends State<StorageList> {
       body: Padding(
         padding: EdgeInsets.all(10.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 0.0),
-              child: Column(
-                children: [
-                  Text(
-                    "Disponibilidade de silos em: ",
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
-                  Text(_filterDateTextController.text,
-                      style: Theme.of(context).textTheme.headline6),
-                ],
-              ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Icon(Icons.warehouse, size: 40,),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Disponibilidade de silos em: ",
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    Text(_filterDateTextController.text,
+                        style: Theme.of(context).textTheme.headline6),
+                  ],
+                )
+              ],
             ),
             Divider(
               thickness: 1.0,
